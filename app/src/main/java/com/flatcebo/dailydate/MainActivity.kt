@@ -5,12 +5,16 @@ import android.os.Bundle
 
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.absoluteOffset
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -32,6 +36,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -79,15 +85,48 @@ fun TopAppBar(content : @Composable () -> Unit) {
         
         )  {
 contentPadding ->
-            Row(
-                modifier = Modifier
-                    .width(500.dp)
+            Box(
+                Modifier
+                    .width(415.dp)
+                    .height(250.dp)
                     .padding(contentPadding)
                     .border(width = 1.dp, color = Color.Cyan, shape = RectangleShape)
 
 
             ) {
-                Text(text = "hie")
+//                Text(text = "hie")
+            Box(
+                modifier = Modifier
+                .fillMaxWidth()
+//                    .height(100.dp)
+//                    .background(Color.Green)
+
+            )
+                val imageModifier = Modifier
+                    .width(80.dp)
+                    .height(80.dp)
+                    .border(width = 1.dp, color = Color.Cyan, shape = RectangleShape)
+//                    .absoluteOffset(10.dp,10.dp)
+
+                Row(
+
+                    modifier = imageModifier
+
+                ) {
+                    Image(painter = painterResource(id = R.drawable.ic_launcher_foreground), contentDescription = stringResource(
+                        id = androidx.compose.ui.R.string.off
+                    ))
+                    Image(painter = painterResource(id = R.drawable.ic_launcher_foreground), contentDescription = stringResource(
+                        id = androidx.compose.ui.R.string.off
+                    ))
+                    Image(painter = painterResource(id = R.drawable.ic_launcher_foreground), contentDescription = stringResource(
+                        id = androidx.compose.ui.R.string.off
+                    ))
+
+
+                }
+
+
             }
         }
 
